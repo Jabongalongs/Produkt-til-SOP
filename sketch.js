@@ -30,7 +30,7 @@ function draw() {
     return;
   }
 
-  // Spiller
+  // Player
   fill(255, 100, 100);
   ellipse(playerX, playerY, width / 15, width / 15);
 
@@ -124,14 +124,14 @@ function newQuestion() {
   if (difficulty === "svær") operator = random(["+", "-", "×", "÷"]);
 
   if (operator === "÷") {
-    // lav nem division (som går op)
-    num2 = int(random(2, 5)); // små divisorer
+    // nem division
+    num2 = int(random(2, 5));
     correctAnswer = int(random(2, 10));
     num1 = correctAnswer * num2;
   } else {
     num1 = int(random(1, 10));
     num2 = int(random(1, 10));
-    if (operator === "-" && num2 > num1) [num1, num2] = [num2, num1]; // undgå negative
+    if (operator === "-" && num2 > num1) [num1, num2] = [num2, num1]; // ingen negative tal
     correctAnswer = calculate(num1, num2, operator);
   }
 
